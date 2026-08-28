@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #F4F4F1;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  body { cursor: auto; }
+}
+
+::selection {
+  background: rgba(244, 244, 241, 0.15);
+  color: #F4F4F1;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+a, button {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  a, button { cursor: auto; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mask text animation utility */
+.mask-text {
+  clip-path: inset(100% 0 0 0);
+}
+
+.mask-text-reveal {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Shutter blade */
+.shutter-blade {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img.loaded {
+  opacity: 1;
+}
