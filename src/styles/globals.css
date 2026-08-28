@@ -77,15 +77,12 @@ a, button {
   will-change: transform;
 }
 
-/* Smooth image loading */
-img {
-  transition: opacity 0.3s ease;
+/* Loading spinner */
+@keyframes spin-loader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-img[loading="lazy"] {
-  opacity: 0;
-}
-
-img.loaded {
-  opacity: 1;
+.loader-ring {
+  animation: spin-loader 1.2s linear infinite;
 }

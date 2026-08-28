@@ -4,9 +4,9 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo + Name */}
-          <div className="flex items-center gap-3">
-            <img src="/assets/logo-p.svg" alt="P" className="h-8 w-auto" />
-            <span className="text-sm font-serif text-brand-light/60">Percepção MD</span>
+          <div className="flex items-center gap-2">
+            <img src="/assets/logo-p.svg" alt="" className="h-8 w-auto" />
+            <span className="text-lg font-display tracking-[0.08em] text-brand-light/60">ERCEPÇÃO MD</span>
           </div>
 
           {/* Links */}

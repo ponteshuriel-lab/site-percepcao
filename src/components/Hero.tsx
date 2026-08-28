@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import CameraShutter from './CameraShutter'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -9,29 +8,24 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
-  const shutterRef = useRef<HTMLDivElement>(null)
+  const loaderRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.5 })
+      const tl = gsap.timeline({ delay: 0.3 })
 
-      tl.to('.shutter-group', {
-        rotation: 30,
-        scale: 0.8,
-        duration: 1.2,
-        stagger: 0.05,
-        ease: 'power2.inOut',
+      // Loading circle spins then fades out
+      tl.to(loaderRef.current, {
+        opacity: 0,
+        scale: 1.5,
+        duration: 0.6,
+        ease: 'power2.out',
       })
-        .to(
-          '.hero-shutter-ring',
-          { scale: 15, opacity: 0, duration: 1, ease: 'power2.in' },
-          '-=0.8'
-        )
         .fromTo(
           '.hero-logo-text',
           { opacity: 0, scale: 0.8 },
           { opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out' },
-          '-=0.5'
+          '-=0.2'
         )
         .fromTo(
           '.hero-title',
@@ -74,17 +68,6 @@ export default function Hero() {
           scrub: 1,
         },
       })
-
-      gsap.to(shutterRef.current, {
-        scale: 1.3,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: sectionRef.current!,
-          start: '20% top',
-          end: '60% top',
-          scrub: 1,
-        },
-      })
     }, sectionRef)
 
     return () => ctx.revert()
@@ -108,9 +91,21 @@ export default function Hero() {
         />
       </div>
 
-      {/* Shutter overlay */}
-      <div ref={shutterRef} className="absolute inset-0 flex items-center justify-center z-10">
-        <CameraShutter size={200} isOpen={false} className="hero-shutter-ring" />
+      {/* Loading circle */}
+      <div
+        ref={loaderRef}
+        className="absolute inset-0 flex items-center justify-center z-10 bg-brand-black"
+      >
+        <svg className="loader-ring" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="20" stroke="#2A2A2A" strokeWidth="2" />
+          <circle
+            cx="24" cy="24" r="20"
+            stroke="#F4F4F1"
+            strokeWidth="2"
+            strokeDasharray="80 45"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
 
       {/* Center content */}

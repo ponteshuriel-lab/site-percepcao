@@ -13,7 +13,9 @@ export default {
       },
       fontFamily: {
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['"Bebas Neue"', '"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Bebas Neue"', 'sans-serif'],
+        editorial: ['"Playfair Display"', 'Georgia', 'serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       transitionTimingFunction: {
