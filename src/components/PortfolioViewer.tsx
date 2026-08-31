@@ -113,6 +113,8 @@ export default function PortfolioViewer({ project, onClose }: PortfolioViewerPro
         <img
           src={allImages[currentIndex]}
           alt={`${project.title} — ${currentIndex + 1}`}
+          width="1920"
+          height="1080"
           className="max-w-full max-h-full object-contain"
         />
       </div>

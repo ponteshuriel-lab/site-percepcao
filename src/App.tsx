@@ -8,7 +8,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Portfolio from './components/Portfolio'
 import ShutterTransition from './components/ShutterTransition'
-import SmartAlbum from './components/SmartAlbum'
 import Process from './components/Process'
 import DynamicPhrases from './components/DynamicPhrases'
 import CTA from './components/CTA'
@@ -48,15 +47,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-brand-black text-brand-light">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-light focus:text-brand-black focus:px-4 focus:py-2 focus:outline-none"
+      >
+        Pular para o conteúdo principal
+      </a>
       <CustomCursor />
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Portfolio />
         <DynamicPhrases />
         <ShutterTransition />
-        <SmartAlbum />
         <Process />
         <CTA />
       </main>

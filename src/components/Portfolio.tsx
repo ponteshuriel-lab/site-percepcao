@@ -4,8 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { projects, categories, type Category } from '../data/portfolio'
 import PortfolioViewer from './PortfolioViewer'
 
-gsap.registerPlugin(ScrollTrigger)
-
 export default function Portfolio() {
   const sectionRef = useRef<HTMLElement>(null)
   const [activeCategory, setActiveCategory] = useState<Category>('Todos')
@@ -116,6 +114,8 @@ export default function Portfolio() {
                   src={project.cover}
                   alt={project.title}
                   loading="lazy"
+                  width="800"
+                  height="1000"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">

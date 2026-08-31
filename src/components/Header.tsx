@@ -3,7 +3,6 @@ import gsap from 'gsap'
 
 const navItems = [
   { label: 'TRABALHOS', href: '#portfolio' },
-  { label: 'SMART ALBUM', href: '#smart-album' },
   { label: 'SOBRE', href: '#about' },
   { label: 'CONTATO', href: '#contact' },
 ]
@@ -53,7 +52,7 @@ export default function Header() {
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-10 flex items-center justify-between h-20">
           <a href="#" className="flex items-center gap-2 group" aria-label="Percepção MD - Home">
-            <img src="/assets/logo-p.svg" alt="" className="h-10 w-auto" />
+            <img src="/assets/logo-p.svg" alt="" className="h-10 w-auto" width="40" height="40" />
             <span className="text-xl md:text-2xl font-display tracking-[0.08em] text-brand-light">ERCEPÇÃO</span>
           </a>
 

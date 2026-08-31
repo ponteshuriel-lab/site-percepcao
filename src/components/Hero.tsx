@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
-
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
@@ -86,7 +84,7 @@ export default function Hero() {
       >
         <img
           src="/assets/portfolio/casamento-daniela-e-carlos/f1.jpg"
-          alt=""
+          alt="Casamento Daniela e Carlos — fotografia profissional em Sobral"
           className="w-full h-full object-cover opacity-40"
         />
       </div>
@@ -111,7 +109,7 @@ export default function Hero() {
       {/* Center content */}
       <div ref={textRef} className="absolute inset-0 flex flex-col items-center justify-center z-20">
         <div className="hero-logo-text opacity-0 mb-8">
-          <img src="/assets/logo-p.svg" alt="P" className="w-24 h-24 md:w-32 md:h-32" />
+          <img src="/assets/logo-p.svg" alt="Percepção MD" className="w-24 h-24 md:w-32 md:h-32" />
         </div>
 
         <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-serif tracking-tight text-center mb-4 opacity-0" style={{ clipPath: 'inset(100% 0 0 0)' }}>
@@ -124,7 +122,7 @@ export default function Hero() {
         </p>
 
         <div className="hero-scroll absolute bottom-10 flex flex-col items-center gap-2 opacity-0">
-          <span className="text-[10px] tracking-[0.3em] font-mono text-brand-light/40">
+          <span className="text-[10px] tracking-[0.3em] font-mono text-brand-light/60">
             SCROLL TO DISCOVER
           </span>
           <div className="w-px h-8 bg-brand-light/30 relative overflow-hidden">

@@ -5,8 +5,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo + Name */}
           <div className="flex items-center gap-2">
-            <img src="/assets/logo-p.svg" alt="" className="h-8 w-auto" />
-            <span className="text-lg font-display tracking-[0.08em] text-brand-light/60">ERCEPÇÃO MD</span>
+            <img src="/assets/logo-p.svg" alt="Percepção MD" className="h-8 w-auto" width="32" height="32" />
+            <span className="text-lg font-display tracking-[0.08em] text-brand-light/60">PERCEPÇÃO MD</span>
           </div>
 
           {/* Links */}
@@ -15,7 +15,7 @@ export default function Footer() {
               href="https://instagram.com/percepcaomd"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] tracking-[0.15em] font-mono text-brand-light/40 hover:text-brand-light transition-colors"
+              className="text-[10px] tracking-[0.15em] font-mono text-brand-light/50 hover:text-brand-light transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
               INSTAGRAM
             </a>
@@ -23,7 +23,7 @@ export default function Footer() {
               href="https://wa.me/5500000000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] tracking-[0.15em] font-mono text-brand-light/40 hover:text-brand-light transition-colors"
+              className="text-[10px] tracking-[0.15em] font-mono text-brand-light/50 hover:text-brand-light transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
               WHATSAPP
             </a>

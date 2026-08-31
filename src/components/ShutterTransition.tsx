@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
-
 export default function ShutterTransition() {
   const sectionRef = useRef<HTMLElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
@@ -43,6 +41,8 @@ export default function ShutterTransition() {
           <img
             src="/assets/portfolio/rainha-clara/f1.jpeg"
             alt="Captura de momento"
+            width="1920"
+            height="1080"
             className="w-full h-full object-cover"
           />
         </div>

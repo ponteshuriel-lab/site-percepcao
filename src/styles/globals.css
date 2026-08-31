@@ -52,6 +52,17 @@ a, button {
   a, button { cursor: auto; }
 }
 
+/* Focus visible styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #F4F4F1;
+  outline-offset: 2px;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #F4F4F1;
+  outline-offset: 2px;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

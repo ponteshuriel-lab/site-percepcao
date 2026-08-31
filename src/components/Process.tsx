@@ -3,8 +3,6 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { processSteps } from '../data/phrases'
 
-gsap.registerPlugin(ScrollTrigger)
-
 export default function Process() {
   const sectionRef = useRef<HTMLElement>(null)
 

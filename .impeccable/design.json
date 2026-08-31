@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-30T00:00:00Z",
+  "title": "Design System: Percepção MD",
+  "extensions": {
+    "colorMeta": {
+      "black-deep": {
+        "role": "primary",
+        "displayName": "Preto Profundo",
+        "canonical": "#0A0A0A",
+        "tonalRamp": ["#050505", "#0A0A0A", "#111111", "#1A1A1A", "#2A2A2A", "#333333", "#444444", "#555555"]
+      },
+      "black-dark": {
+        "role": "primary",
+        "displayName": "Preto Escuro",
+        "canonical": "#111111",
+        "tonalRamp": ["#0A0A0A", "#111111", "#1A1A1A", "#2A2A2A", "#333333", "#444444", "#555555", "#666666"]
+      },
+      "black-gray": {
+        "role": "neutral",
+        "displayName": "Cinza Profundo",
+        "canonical": "#1A1A1A",
+        "tonalRamp": ["#111111", "#1A1A1A", "#2A2A2A", "#333333", "#444444", "#555555", "#666666", "#777777"]
+      },
+      "black-mid": {
+        "role": "neutral",
+        "displayName": "Cinza Médio",
+        "canonical": "#2A2A2A",
+        "tonalRamp": ["#1A1A1A", "#2A2A2A", "#333333", "#444444", "#555555", "#666666", "#777777", "#888888"]
+      },
+      "white-cream": {
+        "role": "neutral",
+        "displayName": "Branco Creme",
+        "canonical": "#F4F4F1",
+        "tonalRamp": ["#CCCCCC", "#DDDDDD", "#E8E8E3", "#EEEEEE", "#F4F4F1", "#F7F7F4", "#FAFAF8", "#FDFDFC"]
+      },
+      "white-stone": {
+        "role": "neutral",
+        "displayName": "Branco Pedra",
+        "canonical": "#E8E8E3",
+        "tonalRamp": ["#BBBBBB", "#CCCCCC", "#DDDDDD", "#E8E8E3", "#EEEEEE", "#F4F4F1", "#F7F7F4", "#FAFAF8"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Títulos de seção e hero. Impacto vertical."
+      },
+      "editorial": {
+        "displayName": "Editorial",
+        "purpose": "Títulos alternativos e textos de destaque. Sofisticação."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido e descrições. Peso leve."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navegação, contadores, categorias. Precisão técnica."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "shutter",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Easing principal para transições cinematográficas."
+      },
+      {
+        "name": "scroll-line",
+        "value": "scroll-line 1.5s ease-in-out infinite",
+        "purpose": "Animação do indicador de scroll no hero."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Navigation Header",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Fixa no topo, transparente que ganha backdrop-blur no scroll.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#portfolio\">TRABALHOS</a><a href=\"#smart-album\">SMART ALBUM</a><a href=\"#about\">SOBRE</a><a href=\"#contact\">CONTATO</a></nav>",
+      "css": ".ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; justify-content: center; gap: 32px; padding: 24px 80px; background: transparent; transition: background 0.3s, backdrop-filter 0.3s; } .ds-nav.scrolled { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); } .ds-nav a { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #F4F4F1; text-decoration: none; transition: opacity 0.2s; } .ds-nav a:hover { opacity: 0.7; }"
+    },
+    {
+      "name": "Portfolio Card",
+      "kind": "card",
+      "refersTo": "portfolio-card",
+      "description": "Card de projeto com overlay hover sem border-radius.",
+      "html": "<div class=\"ds-card\"><img src=\"cover.jpg\" alt=\"Projeto\"><div class=\"ds-card-overlay\"><h3>Título</h3><span>Categoria</span></div></div>",
+      "css": ".ds-card { position: relative; overflow: hidden; cursor: none; } .ds-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); } .ds-card:hover img { transform: scale(1.05); } .ds-card-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(transparent, rgba(10, 10, 10, 0.9)); opacity: 0; transition: opacity 0.4s; } .ds-card:hover .ds-card-overlay { opacity: 1; } .ds-card-overlay h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #F4F4F1; letter-spacing: 0.05em; } .ds-card-overlay span { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #E8E8E3; text-transform: uppercase; letter-spacing: 0.1em; }"
+    },
+    {
+      "name": "CTA Button",
+      "kind": "button",
+      "refersTo": "button-cta",
+      "description": "Botão ghost/outline para ações principais.",
+      "html": "<button class=\"ds-btn-cta\">FALE COMIGO</button>",
+      "css": ".ds-btn-cta { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #F4F4F1; background: transparent; border: 1px solid #F4F4F1; padding: 16px 48px; cursor: none; transition: background 0.3s, color 0.3s; } .ds-btn-cta:hover { background: #F4F4F1; color: #0A0A0A; } .ds-btn-cta:focus-visible { outline: 2px solid #F4F4F1; outline-offset: 4px; }"
+    },
+    {
+      "name": "Section Title",
+      "kind": "custom",
+      "refersTo": "section-title",
+      "description": "Título de seção com clip-path reveal animation.",
+      "html": "<h2 class=\"ds-section-title\">PORTFÓLIO</h2>",
+      "css": ".ds-section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; letter-spacing: 0.05em; color: #F4F4F1; text-transform: uppercase; clip-path: inset(100% 0 0 0); transition: clip-path 0.8s cubic-bezier(0.65, 0, 0.35, 1); } .ds-section-title.revealed { clip-path: inset(0 0 0 0); }"
+    },
+    {
+      "name": "Timeline Process",
+      "kind": "custom",
+      "refersTo": "process-timeline",
+      "description": "Linha vertical animada com etapas do processo fotográfico.",
+      "html": "<div class=\"ds-timeline\"><div class=\"ds-timeline-step\"><span class=\"ds-step-number\">01</span><h3>OLHAR</h3><p>Descrição da etapa</p></div></div>",
+      "css": ".ds-timeline { position: relative; padding-left: 60px; } .ds-timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 1px; background: #2A2A2A; } .ds-timeline-step { margin-bottom: 64px; position: relative; } .ds-timeline-step::before { content: ''; position: absolute; left: -40px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: #2A2A2A; transition: background 0.4s; } .ds-timeline-step.active::before { background: #F4F4F1; } .ds-step-number { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #E8E8E3; letter-spacing: 0.1em; } .ds-timeline-step h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #F4F4F1; letter-spacing: 0.05em; margin: 8px 0; } .ds-timeline-step p { font-family: 'Inter', sans-serif; font-weight: 300; color: #E8E8E3; line-height: 1.7; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Galeria Noturna",
+    "overview": "O sistema visual de Percepção MD é um exercício de sobriedade absoluta. A paleta restrita a preto, branco e tons intermediários cria uma atmosfera de galeria noturna — um espaço onde as imagens são as únicas protagonistas e o design recede silenciosamente. A estética é cinematográfica: transições suaves, textos que surgem como cortinas de teatro, e uma sensação de imersão que acompanha o visitante desde o primeiro scroll.",
+    "keyCharacteristics": [
+      "Paleta monocromática absoluta — sem cores de destaque",
+      "Animações cinematográficas com GSAP (clip-path, parallax, blur-to-sharp)",
+      "Cursor personalizado como elemento de interação",
+      "Layout full-viewport com seções intercaladas",
+      "Tipografia condensed para hierarquia vertical"
+    ],
+    "rules": [
+      {
+        "name": "A Regra da Restrição",
+        "body": "O branco (#F4F4F1) é usado apenas para texto e elementos essenciais. Nunca para fundos, bordas decorativas ou áreas de preenchimento.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Peso Leve",
+        "body": "Textos corridos usam sempre peso 300 (light). Pesos médios e bold são reservados para hierarquia visual.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra do Plano Único",
+        "body": "Nenhum elemento flutua sobre outro com sombra. Profundidade é sempre horizontal ou temporal.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do manter a paleta estritamente preto/branco/cinza",
+      "Do usar Bebas Neue para títulos que precisam de impacto vertical",
+      "Do deixar as imagens serem o protagonista",
+      "Do usar clip-path e parallax para criar profundidade temporal",
+      "Do manter textos em peso light (300)"
+    ],
+    "donts": [
+      "Don't adicionar cores de destaque — o monocromático é a identidade",
+      "Don't usar sombras em nenhum componente",
+      "Don't arredondar cantos — a linguagem é brutalista",
+      "Don't sobrecarregar com animações — cada movimento tem propósito",
+      "Don't usar peso bold em textos corridos"
+    ]
+  }
+}
