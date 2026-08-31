@@ -6,6 +6,7 @@ import CustomCursor from './components/CustomCursor'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
+import Services from './components/Services'
 import Portfolio from './components/Portfolio'
 import ShutterTransition from './components/ShutterTransition'
 import Process from './components/Process'
@@ -58,6 +59,7 @@ function App() {
       <main id="main-content">
         <Hero />
         <About />
+        <Services />
         <Portfolio />
         <DynamicPhrases />
         <ShutterTransition />

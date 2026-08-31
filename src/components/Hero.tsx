@@ -83,8 +83,8 @@ export default function Hero() {
         style={{ transformOrigin: 'center center' }}
       >
         <img
-          src="/assets/portfolio/casamento-daniela-e-carlos/f1.jpg"
-          alt="Casamento Daniela e Carlos — fotografia profissional em Sobral"
+          src="/assets/portfolio/rainha-clara/f2.jpeg"
+          alt="Rainha Clara — fotografia profissional em Sobral"
           className="w-full h-full object-cover opacity-40"
         />
       </div>

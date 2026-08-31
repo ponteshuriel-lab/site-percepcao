@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import ContactForm from './ContactForm'
 
 export default function CTA() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -139,36 +137,15 @@ export default function CTA() {
 
         <div className="cta-accent w-20 h-px bg-brand-light mb-10 mx-auto origin-center" />
 
-        {showForm ? (
-          <div className="cta-button max-w-md mx-auto mb-10">
-            <ContactForm />
-            <button
-              onClick={() => setShowForm(false)}
-              className="mt-6 text-xs tracking-[0.15em] font-mono text-brand-light/50 hover:text-brand-light transition-colors"
-            >
-              ← Voltar
-            </button>
-          </div>
-        ) : (
-          <>
-            {/* TODO: Substituir pelo número real do WhatsApp */}
-            <a
-              href="https://wa.me/5500000000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-button inline-block px-10 py-5 bg-brand-light text-brand-black text-xs tracking-[0.25em] font-mono hover:bg-brand-cream transition-all duration-300 hover:scale-105 mb-6 min-h-[48px] min-w-[48px] flex items-center justify-center"
-            >
-              FALE COM A PERCEPÇÃO MD
-            </a>
-
-            <button
-              onClick={() => setShowForm(true)}
-              className="cta-button block mx-auto mb-14 text-xs tracking-[0.2em] font-mono text-brand-light/50 hover:text-brand-light transition-colors min-h-[44px]"
-            >
-              ou preencha o formulário
-            </button>
-          </>
-        )}
+        {/* TODO: Substituir pelo número real do WhatsApp */}
+        <a
+          href="https://wa.me/5500000000000"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-button inline-block px-10 py-5 bg-brand-light text-brand-black text-xs tracking-[0.25em] font-mono hover:bg-brand-cream transition-all duration-300 hover:scale-105 mb-6 min-h-[48px] min-w-[48px] flex items-center justify-center"
+        >
+          FALE COM A PERCEPÇÃO MD
+        </a>
 
         <div className="cta-links flex items-center justify-center gap-10">
           <a
@@ -186,12 +163,6 @@ export default function CTA() {
             className="text-xs tracking-[0.2em] font-mono text-brand-light/50 hover:text-brand-light transition-colors duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             WHATSAPP
-          </a>
-          <a
-            href="#portfolio"
-            className="text-xs tracking-[0.2em] font-mono text-brand-light/50 hover:text-brand-light transition-colors duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center"
-          >
-            PORTFÓLIO
           </a>
         </div>
       </div>
