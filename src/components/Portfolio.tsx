@@ -101,6 +101,11 @@ export default function Portfolio() {
             ))}
           </div>
 
+          {/* Mobile tap hint */}
+          <p className="md:hidden text-[10px] tracking-[0.2em] font-mono text-brand-light/30 mb-8 uppercase">
+            Toque para ver as fotos
+          </p>
+
           {/* Portfolio grid */}
           <div className="portfolio-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredProjects.map((project) => (
