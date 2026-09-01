@@ -48,7 +48,7 @@ export default function ShutterTransition() {
         </div>
 
         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-          <p className="text-2xl md:text-4xl font-serif text-brand-light/60 text-center px-6">
+          <p className="text-2xl md:text-4xl font-serif text-brand-light text-center px-6">
             Captura → Memória
           </p>
         </div>

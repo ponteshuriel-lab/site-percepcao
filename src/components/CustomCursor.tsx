@@ -50,7 +50,7 @@ export default function CustomCursor() {
       gsap.to(cursor, { scale: 3, duration: 0.3, ease: 'power2.out' })
       gsap.to(dot, { scale: 0, duration: 0.15 })
       cursor.classList.add('mix-blend-difference')
-      setCursorLabel('VIEW')
+      setCursorLabel('◎')
     }
 
     const handlePhotoLeave = () => {
@@ -98,7 +98,7 @@ export default function CustomCursor() {
         className="fixed top-0 left-0 w-8 h-8 border border-brand-light/40 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference flex items-center justify-center hidden md:flex"
       >
         {cursorLabel && (
-          <span className="text-[8px] font-mono tracking-widest text-brand-light">
+          <span className="text-sm font-montserrat tracking-widest text-brand-light">
             {cursorLabel}
           </span>
         )}

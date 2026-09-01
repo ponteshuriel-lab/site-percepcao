@@ -100,7 +100,7 @@ export default function About() {
                 É entender o momento. É sentir a luz. É escolher o enquadramento
                 que vai transformar uma fração de segundo em uma memória permanente.
               </p>
-              <p className="about-text text-lg md:text-xl text-brand-light/90 leading-relaxed font-light italic">
+              <p className="about-text text-lg md:text-xl text-brand-light/90 leading-relaxed font-bold">
                 Cada imagem que criamos carrega intenção, técnica e emoção.
               </p>
             </div>

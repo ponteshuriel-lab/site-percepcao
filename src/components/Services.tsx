@@ -106,7 +106,7 @@ export default function Services() {
                 {service.number}
               </span>
 
-              <h3 className="text-lg md:text-xl font-sans font-medium text-[#111111] leading-tight tracking-tight mb-4 uppercase">
+              <h3 className="text-xl md:text-2xl font-montserrat font-bold text-[#111111] leading-tight tracking-tight mb-4 uppercase">
                 {service.title.map((line, i) => (
                   <span key={i} className="block">
                     {line}

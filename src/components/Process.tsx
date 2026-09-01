@@ -86,7 +86,7 @@ export default function Process() {
               )}
 
               <div className="flex items-start gap-4 md:flex-col md:items-center md:text-center">
-                <span className="text-5xl md:text-6xl font-serif text-brand-light/10 leading-none">
+                <span className="text-5xl md:text-6xl font-serif text-brand-light leading-none">
                   {step.number}
                 </span>
                 <div className="md:mt-4">

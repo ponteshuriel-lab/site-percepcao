@@ -16,6 +16,7 @@ export default {
         serif: ['"Bebas Neue"', '"Playfair Display"', 'Georgia', 'serif'],
         display: ['"Bebas Neue"', 'sans-serif'],
         editorial: ['"Playfair Display"', 'Georgia', 'serif'],
+        montserrat: ['"Montserrat"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       transitionTimingFunction: {
