@@ -19,11 +19,6 @@ body {
   color: #F4F4F1;
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
-  cursor: none;
-}
-
-@media (pointer: coarse) {
-  body { cursor: auto; }
 }
 
 ::selection {
@@ -45,11 +40,7 @@ body {
 }
 
 a, button {
-  cursor: none;
-}
-
-@media (pointer: coarse) {
-  a, button { cursor: auto; }
+  cursor: pointer;
 }
 
 /* Focus visible styles for keyboard navigation */

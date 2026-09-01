@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import CustomCursor from './components/CustomCursor'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -54,7 +53,6 @@ function App() {
       >
         Pular para o conteúdo principal
       </a>
-      <CustomCursor />
       <Header />
       <main id="main-content">
         <Hero />
