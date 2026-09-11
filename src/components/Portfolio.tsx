@@ -16,6 +16,8 @@ export default function Portfolio() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches
+
       gsap.fromTo(
         '.portfolio-title',
         { clipPath: 'inset(100% 0 0 0)' },
@@ -50,12 +52,12 @@ export default function Portfolio() {
 
       gsap.fromTo(
         '.portfolio-card',
-        { y: 80, opacity: 0 },
+        { y: isMobile ? 20 : 80, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.12,
-          duration: 0.8,
+          stagger: isMobile ? 0.05 : 0.12,
+          duration: isMobile ? 0.4 : 0.8,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: '.portfolio-grid',
@@ -74,23 +76,23 @@ export default function Portfolio() {
       <section
         ref={sectionRef}
         id="portfolio"
-        className="relative py-24 md:py-32 bg-brand-black"
+        className="relative py-20 md:py-32 bg-brand-black"
       >
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10">
           <h2
-            className="portfolio-title text-3xl md:text-5xl lg:text-6xl font-serif mb-12"
+            className="portfolio-title text-3xl md:text-5xl lg:text-6xl font-serif mb-8 md:mb-12"
             style={{ clipPath: 'inset(100% 0 0 0)' }}
           >
             PORTFÓLIO
           </h2>
 
           {/* Category filters */}
-          <div className="flex flex-wrap gap-3 mb-12">
+          <div className="flex gap-3 mb-8 md:mb-12 flex-nowrap md:flex-wrap overflow-x-auto md:overflow-visible no-scrollbar snap-x md:snap-none -mx-5 px-5 md:mx-0 md:px-0">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`portfolio-filter px-4 py-2 text-[11px] tracking-[0.15em] font-mono border transition-all duration-300 ${
+                className={`portfolio-filter shrink-0 whitespace-nowrap px-4 py-2 text-[11px] tracking-[0.15em] font-mono border transition-all duration-300 ${
                   activeCategory === cat
                     ? 'border-brand-light bg-brand-light text-brand-black'
                     : 'border-brand-mid text-brand-light/50 hover:border-brand-light/50 hover:text-brand-light'
@@ -102,18 +104,18 @@ export default function Portfolio() {
           </div>
 
           {/* Mobile tap hint */}
-          <p className="md:hidden text-[10px] tracking-[0.2em] font-mono text-brand-light/30 mb-8 uppercase">
+          <p className="md:hidden text-[10px] tracking-[0.2em] font-mono text-brand-light/30 mb-6 uppercase">
             Toque para ver as fotos
           </p>
 
           {/* Portfolio grid */}
-          <div className="portfolio-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="portfolio-grid grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
             {filteredProjects.map((project) => (
               <button
                 key={project.id}
                 data-cursor="photo"
                 onClick={() => setSelectedProject(project.id)}
-                className="portfolio-card group relative aspect-[4/5] overflow-hidden bg-brand-gray"
+                className="portfolio-card group relative aspect-[3/4] md:aspect-[4/5] overflow-hidden bg-brand-gray"
               >
                 <img
                   src={project.cover}
@@ -121,16 +123,16 @@ export default function Portfolio() {
                   loading="lazy"
                   width="800"
                   height="1000"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105 will-change-transform"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                  <span className="text-[10px] tracking-[0.3em] font-mono text-brand-light/50 mb-2">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/20 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-3 md:p-6">
+                  <span className="text-[9px] md:text-[10px] tracking-[0.3em] font-mono text-brand-light/50 mb-1 md:mb-2">
                     {String(project.id).padStart(2, '0')}
                   </span>
-                  <h3 className="text-lg md:text-xl font-serif text-brand-light mb-1">
+                  <h3 className="text-sm md:text-xl font-serif text-brand-light mb-1">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-brand-light/50 font-mono tracking-wider">
+                  <p className="text-[10px] md:text-xs text-brand-light/50 font-mono tracking-wider">
                     {project.category.toUpperCase()}
                   </p>
                 </div>

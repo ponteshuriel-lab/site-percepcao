@@ -10,6 +10,7 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches
       const tl = gsap.timeline({ delay: 0.3 })
 
       // Loading circle spins then fades out
@@ -44,28 +45,30 @@ export default function Hero() {
           '-=0.2'
         )
 
-      // Scroll parallax
-      gsap.to(imageRef.current, {
-        yPercent: 25,
-        scale: 1.15,
-        scrollTrigger: {
-          trigger: sectionRef.current!,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-      })
+      // Scroll parallax (somente no desktop para evitar travamentos no mobile)
+      if (!isMobile) {
+        gsap.to(imageRef.current, {
+          yPercent: 25,
+          scale: 1.15,
+          scrollTrigger: {
+            trigger: sectionRef.current!,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5,
+          },
+        })
 
-      gsap.to(textRef.current, {
-        yPercent: -30,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: sectionRef.current!,
-          start: 'top top',
-          end: '50% top',
-          scrub: 1,
-        },
-      })
+        gsap.to(textRef.current, {
+          yPercent: -30,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: sectionRef.current!,
+            start: 'top top',
+            end: '50% top',
+            scrub: 1,
+          },
+        })
+      }
     }, sectionRef)
 
     return () => ctx.revert()
@@ -79,7 +82,7 @@ export default function Hero() {
       {/* Background image */}
       <div
         ref={imageRef}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full will-change-transform"
         style={{ transformOrigin: 'center center' }}
       >
         <img
@@ -107,7 +110,7 @@ export default function Hero() {
       </div>
 
       {/* Center content */}
-      <div ref={textRef} className="absolute inset-0 flex flex-col items-center justify-center z-20">
+      <div ref={textRef} className="absolute inset-0 flex flex-col items-center justify-center z-20 will-change-transform">
         <div className="hero-logo-text opacity-0 mb-8">
           <img src="/assets/logo-p.svg" alt="Percepção MD" className="w-24 h-24 md:w-32 md:h-32" />
         </div>

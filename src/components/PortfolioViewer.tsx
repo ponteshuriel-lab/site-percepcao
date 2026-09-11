@@ -82,31 +82,23 @@ export default function PortfolioViewer({ project, onClose }: PortfolioViewerPro
       {/* Close button */}
       <button
         onClick={handleClose}
-        className="absolute top-6 right-6 z-10 text-brand-light/60 hover:text-brand-light transition-colors"
+        className="absolute top-[max(16px,env(safe-area-inset-top))] right-4 md:right-6 z-10 w-11 h-11 flex items-center justify-center text-brand-light/60 hover:text-brand-light transition-colors bg-brand-black/40 backdrop-blur-sm"
         aria-label="Fechar"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M18 6L6 18M6 6l12 12" />
         </svg>
       </button>
 
       {/* Counter */}
-      <div className="absolute top-6 left-6 z-10 text-[11px] font-mono tracking-[0.2em] text-brand-light/50">
+      <div className="absolute top-[max(20px,env(safe-area-inset-top))] left-4 md:left-10 z-10 text-[11px] font-mono tracking-[0.2em] text-brand-light/50">
         {String(currentIndex + 1).padStart(2, '0')} / {String(allImages.length).padStart(2, '0')}
-      </div>
-
-      {/* Project info */}
-      <div className="absolute bottom-6 left-6 z-10">
-        <h3 className="text-lg font-serif text-brand-light">{project.title}</h3>
-        <p className="text-xs font-mono text-brand-light/40 tracking-wider mt-1">
-          {project.category.toUpperCase()}
-        </p>
       </div>
 
       {/* Image */}
       <div
         ref={imageRef}
-        className="w-full h-full flex items-center justify-center p-4 md:p-10"
+        className="w-full h-full flex items-center justify-center px-3 md:px-10 pt-[max(80px,env(safe-area-inset-top))] md:pt-10 pb-[calc(160px+env(safe-area-inset-bottom))] md:pb-10"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -117,6 +109,41 @@ export default function PortfolioViewer({ project, onClose }: PortfolioViewerPro
           height="1080"
           className="max-w-full max-h-full object-contain"
         />
+      </div>
+
+      {/* Project info + mobile thumbnails */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-brand-black via-brand-black/85 to-transparent md:bg-none md:via-transparent pt-16 md:pt-0 px-4 md:px-10 pb-[max(16px,env(safe-area-inset-bottom))] md:pb-8">
+        <h3 className="text-lg font-serif text-brand-light">{project.title}</h3>
+        <p className="text-xs font-mono text-brand-light/40 tracking-wider mt-1">
+          {project.category.toUpperCase()}
+        </p>
+
+        {/* Thumbnails - mobile navigation */}
+        <div className="flex gap-2 mt-4 overflow-x-auto no-scrollbar md:hidden">
+          {allImages.map((src, i) => (
+            <button
+              key={src}
+              onClick={() => goTo(i)}
+              aria-label={`Ir para foto ${i + 1}`}
+              className={`w-14 h-14 shrink-0 overflow-hidden border transition-all duration-300 ${
+                i === currentIndex
+                  ? 'border-brand-light'
+                  : 'border-brand-mid opacity-40'
+              }`}
+            >
+              <img
+                src={src}
+                alt=""
+                loading="lazy"
+                width="56"
+                height="56"
+                className={`w-full h-full object-cover ${
+                  i === currentIndex ? '' : 'grayscale'
+                }`}
+              />
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Navigation arrows - desktop only */}
@@ -144,7 +171,7 @@ export default function PortfolioViewer({ project, onClose }: PortfolioViewerPro
       )}
 
       {/* Progress bar */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-brand-mid">
+      <div className="absolute bottom-0 left-0 w-full h-px bg-brand-mid z-20">
         <div
           className="h-full bg-brand-light/50 transition-all duration-300"
           style={{ width: `${((currentIndex + 1) / allImages.length) * 100}%` }}
