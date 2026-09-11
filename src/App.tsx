@@ -9,7 +9,7 @@ import Services from './components/Services'
 import Portfolio from './components/Portfolio'
 import ShutterTransition from './components/ShutterTransition'
 import Process from './components/Process'
-import DynamicPhrases from './components/DynamicPhrases'
+
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -60,7 +60,6 @@ function App() {
         <About />
         <Services />
         <Portfolio />
-        <DynamicPhrases />
         <ShutterTransition />
         <Process />
         <CTA />
